@@ -1,3 +1,13 @@
-<p>
-  debt-selection works!
-</p>
+<mat-card>
+  <mat-card-content>
+    <form action="" [formGroup]="selectionForm" (ngSubmit)="onFormSubmit()">
+      <label for="">Jag vill se:</label>
+      <mat-radio-group class="flex-group" formControlName="debtsFrom">
+        <mat-radio-button class="rado" *ngFor="let val of valAvSkulder" [value]="val.value">
+          {{val.text}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <button mat-raised-button color="primary" type="submit">Spara och gå vidare </button>
+    </form>
+  </mat-card-content>
+</mat-card>
