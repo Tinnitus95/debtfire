@@ -27,6 +27,7 @@ import {LoginDialogModalComponent, LoginPageComponent} from './login-page/login-
 import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
 import {DebtSelectionComponent} from './debt-selection/debt-selection.component';
+import {DebtsummaryComponent} from './debtsummary/debtsummary.component';
 
 
 const approutes: Routes = [
@@ -42,7 +43,6 @@ const approutes: Routes = [
     FormComponent,
     DebtTableComponent,
     LoginPageComponent,
-    LoginDialogComponent,
     DebtsummaryComponent,
     LoginDialogModalComponent,
     MainComponent,
