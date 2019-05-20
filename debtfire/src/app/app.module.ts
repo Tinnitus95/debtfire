@@ -27,12 +27,14 @@ import {LoginDialogModalComponent, LoginPageComponent} from './login-page/login-
 import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
 import {DebtSelectionComponent} from './debt-selection/debt-selection.component';
+import { FullmaktComponent } from './fullmakt/fullmakt.component';
 
 
 const approutes: Routes = [
   {path: '', component: LoginPageComponent},
   {path: 'main', component: MainComponent},
-  {path: 'debt-selection', component: DebtSelectionComponent}
+  {path: 'debt-selection', component: DebtSelectionComponent},
+  {path: 'fullmakt', component: FullmaktComponent},
 ];
 
 @NgModule({
@@ -45,6 +47,7 @@ const approutes: Routes = [
     LoginDialogModalComponent,
     MainComponent,
     DebtSelectionComponent,
+    FullmaktComponent,
 
   ],
   imports: [
