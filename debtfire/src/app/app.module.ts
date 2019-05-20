@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './navbar/navbar.component';
-import { LayoutModule } from '@angular/cdk/layout';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NavbarComponent} from './navbar/navbar.component';
+import {LayoutModule} from '@angular/cdk/layout';
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -20,12 +20,20 @@ import {
   MatSortModule,
   MatDialogModule
 } from '@angular/material';
-import { FormComponent } from './form/form.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { DebtTableComponent } from './debt-table/debt-table.component';
-import { LoginPageComponent } from './login-page/login-page.component';
-import { LoginDialogComponent } from './login-page/login-dialog/login-dialog.component';
-import { DebtsummaryComponent } from './debtsummary/debtsummary.component';
+import {FormComponent} from './form/form.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DebtTableComponent} from './debt-table/debt-table.component';
+import {LoginDialogModalComponent, LoginPageComponent} from './login-page/login-page.component';
+import {RouterModule, Routes} from '@angular/router';
+import {MainComponent} from './main/main.component';
+import {DebtSelectionComponent} from './debt-selection/debt-selection.component';
+
+
+const approutes: Routes = [
+  {path: '', component: LoginPageComponent},
+  {path: 'main', component: MainComponent},
+  {path: 'debt-selection', component: DebtSelectionComponent}
+];
 
 @NgModule({
   declarations: [
@@ -35,7 +43,11 @@ import { DebtsummaryComponent } from './debtsummary/debtsummary.component';
     DebtTableComponent,
     LoginPageComponent,
     LoginDialogComponent,
-    DebtsummaryComponent
+    DebtsummaryComponent,
+    LoginDialogModalComponent,
+    MainComponent,
+    DebtSelectionComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -54,9 +66,17 @@ import { DebtsummaryComponent } from './debtsummary/debtsummary.component';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    RouterModule.forRoot(approutes, {enableTracing: true}),
+
   ],
   providers: [],
+  entryComponents: [LoginDialogModalComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
+
+
+
