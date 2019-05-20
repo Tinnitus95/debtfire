@@ -13,7 +13,7 @@ export class DebtTableComponent implements AfterViewInit {
   dataSource: DebtTableDataSource;
 
   /** Columns displayed in the table. Columns IDs can be added, removed, or reordered. */
-  displayedColumns = ['id', 'name'];
+  displayedColumns = ['id', 'borgenar', 'skuld', 'procent'];
 
   ngAfterViewInit() {
     this.dataSource = new DebtTableDataSource(this.paginator, this.sort);

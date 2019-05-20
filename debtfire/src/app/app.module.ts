@@ -25,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DebtTableComponent } from './debt-table/debt-table.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { LoginDialogComponent } from './login-page/login-dialog/login-dialog.component';
+import { DebtsummaryComponent } from './debtsummary/debtsummary.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { LoginDialogComponent } from './login-page/login-dialog/login-dialog.com
     FormComponent,
     DebtTableComponent,
     LoginPageComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    DebtsummaryComponent
   ],
   imports: [
     BrowserModule,
