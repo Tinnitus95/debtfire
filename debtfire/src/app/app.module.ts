@@ -33,6 +33,7 @@ import { FullmaktComponent } from './fullmakt/fullmakt.component';
 import {AutogiroComponent} from './autogiro/autogiro.component';
 import {SummeringComponent} from './summering/summering.component';
 import { AddSkuldComponent } from './add-skuld/add-skuld.component';
+import {MyLineChartComponent} from './my-line-chart/my-line-chart.component';
 
 
 const approutes: Routes = [
@@ -69,6 +70,7 @@ const approutes: Routes = [
     AutogiroComponent,
     SummeringComponent,
     AddSkuldComponent,
+    MyLineChartComponent
   ],
   imports: [
     BrowserModule,
