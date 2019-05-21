@@ -25,8 +25,8 @@ export class AutogiroComponent implements OnInit {
 
   Onsubmit(update) {
     this.state.autogiroValues = update;
-    console.log(this.state.autogiroValues);
-    this.router.navigate(['/summering']);
+
+
   }
 
 }
