@@ -28,12 +28,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
 import {DebtSelectionComponent} from './debt-selection/debt-selection.component';
 import {DebtsummaryComponent} from './debtsummary/debtsummary.component';
-import { BetalningsutrymmeComponent } from './betalningsutrymme/betalningsutrymme.component';
-import { FullmaktComponent } from './fullmakt/fullmakt.component';
+import {BetalningsutrymmeComponent} from './betalningsutrymme/betalningsutrymme.component';
+import {FullmaktComponent} from './fullmakt/fullmakt.component';
 import {AutogiroComponent} from './autogiro/autogiro.component';
 import {SummeringComponent} from './summering/summering.component';
-import { AddSkuldComponent } from './add-skuld/add-skuld.component';
+import {AddSkuldComponent} from './add-skuld/add-skuld.component';
 import {MyLineChartComponent} from './my-line-chart/my-line-chart.component';
+import {ChartsModule} from 'ng2-charts';
 
 
 const approutes: Routes = [
@@ -41,16 +42,18 @@ const approutes: Routes = [
   {
     path: 'main', component: NavbarComponent,
 
-  children: [
-    { path: '', component: MainComponent },
-    { path: 'debts', component: DebtsummaryComponent}
-  ]},
-   
+    children: [
+      {path: '', component: MainComponent},
+      {path: 'debts', component: DebtsummaryComponent}
+    ]
+  },
+
   {path: 'debt-selection', component: DebtSelectionComponent},
   {path: 'debt-summary', component: DebtsummaryComponent},
   {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent},
   {path: 'autogiro', component: AutogiroComponent},
-  {path: 'summering', component: SummeringComponent}
+  {path: 'summering', component: SummeringComponent},
+  {path: 'line-chart', component: MyLineChartComponent}
 
 ];
 
@@ -73,6 +76,7 @@ const approutes: Routes = [
     MyLineChartComponent
   ],
   imports: [
+    ChartsModule,
     BrowserModule,
     BrowserAnimationsModule,
     LayoutModule,

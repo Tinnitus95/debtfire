@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {DebtStateService} from '../debt-state.service';
+import {DebtsService} from '../debts.service';
 
 @Component({
   selector: 'app-my-line-chart',
@@ -6,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-line-chart.component.css']
 })
 export class MyLineChartComponent implements OnInit {
-
+  shouldGetSkuldsanering = false;
+  breakLoop = false;
   public barChartOptions = {
     scaleShowVerticalLines: false,
     responsive: true
@@ -18,16 +21,16 @@ export class MyLineChartComponent implements OnInit {
   public debtEntrySetMonths = [];
   public initialDebt;
 
-  public INSTALLMENT = 7500;
+  public INSTALLMENT = this.state.utrymme;
   public debtToFocusOn;
   public totalDebtPaid = 0;
   public totalRentPaid = 0;
   public months = 0;
 
   public debt = [
-    { borgenar: 'Intrum 1', skuld: 50000, initialskuld: 50000, ranta: 3.5 },
-    { borgenar: 'Intrum 2', skuld: 1000, initialskuld: 1000, ranta: 22.5 },
-    { borgenar: 'Intrum 3', skuld: 3600, initialskuld: 3600, ranta: 5.5 }
+    {borgenar: 'Intrum 1', skuld: 50000, initskuld: 50000, ranta: 3.5},
+    {borgenar: 'Intrum 2', skuld: 1000, initskuld: 1000, ranta: 22.5},
+    {borgenar: 'Intrum 3', skuld: 3600, initskuld: 3600, ranta: 5.5}
   ];
 
   public barChartLabels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '12'];
@@ -35,32 +38,35 @@ export class MyLineChartComponent implements OnInit {
   public barChartLegend = true;
 
   public barChartData = [
-    { data: [], label: 'Din skuldutveckling' },
-    { data: [], label: 'Skuld om du inte betalar' }
+    {data: [], label: 'Din skuldutveckling'},
+    {data: [], label: 'Skuld om du inte betalar'}
   ];
-  constructor() { }
+
+  constructor(private state: DebtStateService, private debts: DebtsService) {
+  }
 
   ngOnInit() {
-    const data = this.simulateDebtPayoff(this.debt, 5000);
+    const data = this.simulateDebtPayoff(this.debt);
     this.barChartLabels = data.debtEntrysetMonths;
     this.barChartData[0].data = data.debtEntryset;
+    console.log("dsa");
     this.barChartData[1].data = this.simulateRentIfNotPaid(this.debt, this.barChartData[0].data.length);
   }
 
   simulateRentIfNotPaid(tempDebt, months) {
     const rentEvolution = [];
-
+    console.log("dsa2");
     for (let month = 0; month < months; month++) {
       let totalDebt = 0;
-        for (let i = 0; i < tempDebt.length; i++) {
-            const currentDebt = tempDebt[i];
-            let debt = currentDebt.initialskuld;
-            debt = debt + (debt * (currentDebt.ranta / 100));
-            currentDebt.initialskuld = debt;
-            totalDebt += debt;
-        }
-        console.log(totalDebt);
-        rentEvolution.push(totalDebt);
+      for (let i = 0; i < tempDebt.length; i++) {
+        const currentDebt = tempDebt[i];
+        let debt = currentDebt.initskuld;
+        debt = debt + (debt * (currentDebt.ranta / 100));
+        currentDebt.initskuld = debt;
+        totalDebt += debt;
+      }
+      console.log(totalDebt);
+      rentEvolution.push(totalDebt);
     }
 
     return rentEvolution;
@@ -75,11 +81,11 @@ export class MyLineChartComponent implements OnInit {
     this.initialDebt = this.summarizeTotalDebt();
   }
 
-  simulateDebtPayoff(debt, installment) {
-    this.INSTALLMENT = installment;
+  simulateDebtPayoff(debt) {
     this.clearVariables();
     debt.sort((a, b) => a.ranta - b.ranta);
-    while (this.stillDebtRemaining()) {
+
+    while (this.stillDebtRemaining() && this.months <= 200 && !this.breakLoop) {
       this.months++;
       this.payOffDebt();
       if (this.summarizeTotalDebt() > 0) {
@@ -89,9 +95,14 @@ export class MyLineChartComponent implements OnInit {
         this.debtEntrySet.push(0);
         this.debtEntrySetMonths.push(this.months);
       }
+
+      if (this.months >= 60) {
+        this.shouldGetSkuldsanering = true;
+        break;
+      }
     }
 
-
+      this.state.skuldfriTime = this.months;
     return {
       'totalDebtPaid': this.totalDebtPaid,
       'totalRentPaid': this.totalRentPaid,
@@ -138,6 +149,9 @@ export class MyLineChartComponent implements OnInit {
     }
     this.totalRentPaid += sum;
     this.rentEntrySet.push(sum);
+    if(sum >= this.INSTALLMENT) {
+
+    }
     return sum;
   }
 
@@ -174,5 +188,6 @@ export class MyLineChartComponent implements OnInit {
     }
     return sum;
   }
+
 
 }
