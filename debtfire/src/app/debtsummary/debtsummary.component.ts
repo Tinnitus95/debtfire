@@ -26,7 +26,7 @@ export class DebtsummaryComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
 
 
-  kfmColumns: string[] = ['id', 'borgenar', 'skuld', 'ranta', 'isKronofogden'];
+  kfmColumns: string[] = [ 'borgenar', 'skuld', 'ranta', 'isKronofogden'];
   kfmData = this.debts.getdebts();
   kfmDataSource = new MatTableDataSource<Debtdata>(this.kfmData);
 
