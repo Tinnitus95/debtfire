@@ -28,7 +28,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
 import {DebtSelectionComponent} from './debt-selection/debt-selection.component';
 import {DebtsummaryComponent} from './debtsummary/debtsummary.component';
-import { FullmaktComponent } from './fullmakt/fullmakt.component';
+import { BetalningsutrymmeComponent } from './betalningsutrymme/betalningsutrymme.component';
 
 
 const approutes: Routes = [
@@ -40,7 +40,8 @@ const approutes: Routes = [
     
   ]},
   {path: 'debt-selection', component: DebtSelectionComponent},
-  {path: 'fullmakt', component: FullmaktComponent},
+  {path: 'debt-summary', component: DebtsummaryComponent},
+  {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent}
 ];
 
 @NgModule({
@@ -54,8 +55,7 @@ const approutes: Routes = [
     LoginDialogModalComponent,
     MainComponent,
     DebtSelectionComponent,
-    FullmaktComponent,
-
+    BetalningsutrymmeComponent,
   ],
   imports: [
     BrowserModule,
