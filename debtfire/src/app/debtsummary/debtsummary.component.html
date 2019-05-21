@@ -1,7 +1,10 @@
 
   
 <mat-card class="debt-card">
-  
+  <mat-card-header>
+    <mat-card-title>Dina skulder</mat-card-title>
+    <mat-card-subtitle>Din totala skuld: {{totalSkuld}} kr</mat-card-subtitle>
+  </mat-card-header>
 
 <div class="kfm-table">
 <table mat-table matSort [dataSource]="kfmDataSource">
