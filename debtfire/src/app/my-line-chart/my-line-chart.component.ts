@@ -27,11 +27,7 @@ export class MyLineChartComponent implements OnInit {
   public totalRentPaid = 0;
   public months = 0;
 
-  public debt = [
-    {borgenar: 'Intrum 1', skuld: 50000, initskuld: 50000, ranta: 3.5},
-    {borgenar: 'Intrum 2', skuld: 1000, initskuld: 1000, ranta: 22.5},
-    {borgenar: 'Intrum 3', skuld: 3600, initskuld: 3600, ranta: 5.5}
-  ];
+  public debt = this.debts.getdebts();
 
   public barChartLabels = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '12'];
   public barChartType = 'line';
@@ -39,7 +35,7 @@ export class MyLineChartComponent implements OnInit {
 
   public barChartData = [
     {data: [], label: 'Din skuldutveckling'},
-    {data: [], label: 'Skuld om du inte betalar'}
+    // {data: [], label: 'Skuld om du inte betalar'}
   ];
 
   constructor(private state: DebtStateService, private debts: DebtsService) {
@@ -50,7 +46,7 @@ export class MyLineChartComponent implements OnInit {
     this.barChartLabels = data.debtEntrysetMonths;
     this.barChartData[0].data = data.debtEntryset;
     console.log("dsa");
-    this.barChartData[1].data = this.simulateRentIfNotPaid(this.debt, this.barChartData[0].data.length);
+    // this.barChartData[1].data = this.simulateRentIfNotPaid(this.debt, this.barChartData[0].data.length);
   }
 
   simulateRentIfNotPaid(tempDebt, months) {

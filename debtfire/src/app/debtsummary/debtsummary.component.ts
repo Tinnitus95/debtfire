@@ -24,9 +24,7 @@ export class DebtsummaryComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-
-
-  kfmColumns: string[] = [ 'borgenar', 'skuld', 'ranta', 'isKronofogden'];
+  kfmColumns: string[] = ['borgenar', 'skuld', 'ranta', 'isKronofogden'];
   kfmData = this.debts.getdebts();
   kfmDataSource = new MatTableDataSource<Debtdata>(this.kfmData);
 
@@ -39,7 +37,9 @@ export class DebtsummaryComponent implements OnInit {
   ngOnInit() {
     this.kfmDataSource.paginator = this.paginator;
     this.kfmDataSource.sort = this.sort;
-
+    setInterval(() => {
+       this.kfmData = this.debts.getdebts();
+    }, 1000);
   }
 
   onButtonClick(val) {
@@ -48,8 +48,7 @@ export class DebtsummaryComponent implements OnInit {
   }
 
 
-
-  addSkuld(event){
+  addSkuld(event) {
     console.log(event);
   }
 
