@@ -42,16 +42,18 @@ const approutes: Routes = [
   {
     path: 'main', component: NavbarComponent,
 
-  children: [
-    { path: '', component: MainComponent },
-    { path: 'debts', component: DebtsummaryComponent},
-    {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent},
-  {path: 'autogiro', component: AutogiroComponent},
-  ]},
-   
+    children: [
+      {path: '', component: MainComponent},
+      {path: 'debts', component: DebtsummaryComponent},
+      {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent},
+      {path: 'autogiro', component: AutogiroComponent},
+      {path: 'line-chart', component: MyLineChartComponent}
+    ]
+  },
+
   {path: 'debt-selection', component: DebtSelectionComponent},
   {path: 'debt-summary', component: DebtsummaryComponent},
- 
+
   {path: 'summering', component: SummeringComponent}
 
 ];

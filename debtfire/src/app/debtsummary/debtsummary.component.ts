@@ -44,7 +44,7 @@ export class DebtsummaryComponent implements OnInit {
 
   onButtonClick(val) {
     this.state.utrymme = val;
-    this.router.navigate(['/line-chart']);
+    this.router.navigate(['/main/line-chart']);
   }
 
 
