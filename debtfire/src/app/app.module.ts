@@ -31,6 +31,7 @@ import {DebtsummaryComponent} from './debtsummary/debtsummary.component';
 import {BetalningsutrymmeComponent} from './betalningsutrymme/betalningsutrymme.component';
 import {AutogiroComponent} from './autogiro/autogiro.component';
 import {SummeringComponent} from './summering/summering.component';
+import { AddSkuldComponent } from './add-skuld/add-skuld.component';
 
 
 const approutes: Routes = [
@@ -65,6 +66,7 @@ const approutes: Routes = [
     BetalningsutrymmeComponent,
     AutogiroComponent,
     SummeringComponent,
+    AddSkuldComponent,
   ],
   imports: [
     BrowserModule,
