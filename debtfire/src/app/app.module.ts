@@ -42,7 +42,6 @@ const approutes: Routes = [
   {
     path: 'main', component: NavbarComponent,
 
-<<<<<<< HEAD
   children: [
     { path: '', component: MainComponent },
     { path: 'debts', component: DebtsummaryComponent},
@@ -54,20 +53,6 @@ const approutes: Routes = [
   {path: 'debt-summary', component: DebtsummaryComponent},
  
   {path: 'summering', component: SummeringComponent}
-=======
-    children: [
-      {path: '', component: MainComponent},
-      {path: 'debts', component: DebtsummaryComponent}
-    ]
-  },
-
-  {path: 'debt-selection', component: DebtSelectionComponent},
-  {path: 'debt-summary', component: DebtsummaryComponent},
-  {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent},
-  {path: 'autogiro', component: AutogiroComponent},
-  {path: 'summering', component: SummeringComponent},
-  {path: 'line-chart', component: MyLineChartComponent}
->>>>>>> ca9be48fca33a8bde2dde63999b97c83eab022c8
 
 ];
 
