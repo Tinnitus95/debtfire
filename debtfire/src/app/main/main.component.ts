@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { Router } from '@angular/router';
+import { FullmaktComponent } from '../fullmakt/fullmakt.component';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog, private router: Router) { }
 
   ngOnInit() {
   }
+
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(FullmaktComponent, {
+      width: '250px',
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.router.navigate(['/main']);
+    });
+  }
+
 
 }

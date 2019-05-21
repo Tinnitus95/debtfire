@@ -1,1 +1,35 @@
-<button mat-raised-button (click)="openDialog()">Login</button>
+<mat-toolbar color="primary">
+    <span>Debt fire</span>
+</mat-toolbar>
+
+<mat-card class="login-card">
+    <mat-card-header>
+        <mat-card-title>Logga in</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            <mat-form-field appearance="fill">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Placeholder">
+                    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                    <mat-hint>Ange din email</mat-hint>
+                  </mat-form-field>
+
+                </p>
+                <p>
+                  <mat-form-field appearance="fill">
+                        <mat-label>Lösenord</mat-label>
+                        <input matInput placeholder="Placeholder">
+                        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                        <mat-hint>Ange ditt lösenord</mat-hint>
+                      </mat-form-field>
+                    </p>
+    
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button (click)="onClick()" >Login</button>
+    </mat-card-actions>
+</mat-card>
+
+
+<!-- <button mat-raised-button (click)="openDialog()">Login</button> -->

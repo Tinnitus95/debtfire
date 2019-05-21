@@ -23,6 +23,10 @@ export class LoginPageComponent {
   constructor(public dialog: MatDialog, private router: Router) {
   }
 
+  onClick(): void {
+    this.router.navigate(['/main'])
+  }
+
   openDialog(): void {
     const dialogRef = this.dialog.open(LoginDialogModalComponent, {
       width: '250px',

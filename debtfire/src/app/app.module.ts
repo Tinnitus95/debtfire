@@ -33,7 +33,12 @@ import { FullmaktComponent } from './fullmakt/fullmakt.component';
 
 const approutes: Routes = [
   {path: '', component: LoginPageComponent},
-  {path: 'main', component: MainComponent},
+  {path: 'main', component: NavbarComponent,
+
+  children: [
+    { path: '', component: MainComponent },
+    
+  ]},
   {path: 'debt-selection', component: DebtSelectionComponent},
   {path: 'fullmakt', component: FullmaktComponent},
 ];

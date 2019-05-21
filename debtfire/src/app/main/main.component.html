@@ -1,12 +1,12 @@
-<mat-card>
+<mat-card class="main-card">
 
   <mat-card-content>
     <h1>Välkommen Angelica</h1>
-    <p>Här kan du se dina samtliga skulder hos Kronofogden och inhämtade uppgifter drån inkassobolag</p>
+    <p>Här kan du se dina samtliga skulder hos Kronofogden och inhämtade uppgifter från inkassobolag</p>
     <p>Vi behöver en fullmakt från dig för att kunna undersöka vilka inkassobolag som du har skulder hos.</p>
     <p>Utifrån dessa skulder räknar vi ut den  effektivaste avbetalningsplanen utifrån dina personuppgifter.</p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-stroked-button [routerLink]="['/debt-selection']">Se mina skulder</button>
+    <button mat-raised-button (click)="openDialog()">Starta prognos</button>
   </mat-card-actions>
 </mat-card>
