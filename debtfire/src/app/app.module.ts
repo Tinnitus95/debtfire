@@ -18,7 +18,7 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatDialogModule, MatGridListModule
+  MatDialogModule, MatGridListModule, MatSnackBarModule
 } from '@angular/material';
 import {FormComponent} from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -42,13 +42,14 @@ const approutes: Routes = [
 
   children: [
     { path: '', component: MainComponent },
-    { path: 'debts', component: DebtsummaryComponent}
+    { path: 'debts', component: DebtsummaryComponent},
+    {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent},
+  {path: 'autogiro', component: AutogiroComponent},
   ]},
    
   {path: 'debt-selection', component: DebtSelectionComponent},
   {path: 'debt-summary', component: DebtsummaryComponent},
-  {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent},
-  {path: 'autogiro', component: AutogiroComponent},
+ 
   {path: 'summering', component: SummeringComponent}
 
 ];
@@ -88,6 +89,7 @@ const approutes: Routes = [
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
+    MatSnackBarModule,
     MatGridListModule,
     MatListModule,
     FormsModule,

@@ -59,4 +59,8 @@ export class DebtsummaryComponent implements OnInit {
   }
 
 
+  addSkuld(event){
+    console.log(event);
+  }
+
 }

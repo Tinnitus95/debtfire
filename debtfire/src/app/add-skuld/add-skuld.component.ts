@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {DebtStateService} from '../debt-state.service';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-add-skuld',
@@ -14,13 +15,18 @@ export class AddSkuldComponent implements OnInit {
     ranta: new FormControl(),
     skuld: new FormControl()
   })
-  constructor() { }
+  constructor(private snackBar: MatSnackBar) { }
 
   ngOnInit() {
   }
 
   onSubmit(formValues) {
     this.addDebt.emit(formValues);
+    this.addSkuldForm.reset();
+    let skuld = 'Skulden: ' + formValues.borgenar + ' sparad';
+    this.snackBar.open(skuld, '', {
+      duration: 2000,
+    });
   }
 
 }

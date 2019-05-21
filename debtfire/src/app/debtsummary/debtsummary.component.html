@@ -47,7 +47,9 @@
 </table>
 <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="debt-paginator"></mat-paginator>
 </div>
-<app-add-skuld></app-add-skuld>
+<app-add-skuld 
+(addDebt)="addSkuld($event)"
+></app-add-skuld>
 <mat-divider></mat-divider>
 
 <div>
