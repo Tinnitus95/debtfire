@@ -1,0 +1,38 @@
+<mat-card>
+  <mat-card-content>
+    <h1>Autogiro för avbetalnings plan</h1>
+    <p>Du kan betala {{utrymme}} kr i månaden och kommer var skuldfri om {{manader}} månader</p>
+
+    <form action="" [formGroup]="autogiroForm" (ngSubmit)="Onsubmit(autogiroForm.getRawValue())">
+      <mat-list>
+        <mat-list-item >
+          <mat-form-field>
+            <input type="number" matInput placeholder="autogiro" formControlName="autogiro" readonly>
+            <span matSuffix>Kr</span>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item >
+          <mat-form-field>
+            <input type="number" matInput placeholder="clearingnummer" formControlName="clearing">
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item >
+          <mat-form-field>
+            <input type="number" matInput placeholder="kontonummer" formControlName="kontonummer">
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item >
+          <mat-form-field>
+            <input type="number" matInput placeholder="inbetalningsdatum" formControlName="insattningsdatum">
+          </mat-form-field>
+        </mat-list-item>
+      </mat-list>
+<mat-card-actions>
+  <button mat-raised-button color="primary" type="submit" [disabled]="autogiroForm.invalid">Spara och gå vidare </button>
+
+</mat-card-actions>
+
+
+    </form>
+  </mat-card-content>
+</mat-card>
