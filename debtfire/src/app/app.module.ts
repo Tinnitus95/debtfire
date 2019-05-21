@@ -28,7 +28,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
 import {DebtSelectionComponent} from './debt-selection/debt-selection.component';
 import {DebtsummaryComponent} from './debtsummary/debtsummary.component';
-import {BetalningsutrymmeComponent} from './betalningsutrymme/betalningsutrymme.component';
+import { BetalningsutrymmeComponent } from './betalningsutrymme/betalningsutrymme.component';
+import { FullmaktComponent } from './fullmakt/fullmakt.component';
 import {AutogiroComponent} from './autogiro/autogiro.component';
 import {SummeringComponent} from './summering/summering.component';
 import { AddSkuldComponent } from './add-skuld/add-skuld.component';
@@ -39,11 +40,11 @@ const approutes: Routes = [
   {
     path: 'main', component: NavbarComponent,
 
-    children: [
-      {path: '', component: MainComponent},
-
-    ]
-  },
+  children: [
+    { path: '', component: MainComponent },
+    { path: 'debts', component: DebtsummaryComponent}
+  ]},
+   
   {path: 'debt-selection', component: DebtSelectionComponent},
   {path: 'debt-summary', component: DebtsummaryComponent},
   {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent},
@@ -63,6 +64,7 @@ const approutes: Routes = [
     LoginDialogModalComponent,
     MainComponent,
     DebtSelectionComponent,
+    FullmaktComponent,
     BetalningsutrymmeComponent,
     AutogiroComponent,
     SummeringComponent,
@@ -93,7 +95,7 @@ const approutes: Routes = [
 
   ],
   providers: [],
-  entryComponents: [LoginDialogModalComponent],
+  entryComponents: [LoginDialogModalComponent, FullmaktComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
