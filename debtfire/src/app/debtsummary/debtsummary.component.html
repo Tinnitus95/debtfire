@@ -6,17 +6,18 @@
     <mat-card-subtitle>Din totala skuld: {{totalSkuld}} kr</mat-card-subtitle>
   </mat-card-header>
 
-<div class="kfm-table">
+
+<div>
 <table mat-table matSort [dataSource]="kfmDataSource">
 
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
 
-  <!-- Position Column -->
-  <ng-container matColumnDef="id">
-    <th mat-header-cell *matHeaderCellDef>Id</th>
-    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-  </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
 
   <!-- Name Column -->
   <ng-container matColumnDef="borgenar">
@@ -37,13 +38,29 @@
   </ng-container>
 
   <ng-container matColumnDef="isKronofogden">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Hos kronofogden </th>
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Registerad hos Kronofoden</th>
     <td mat-cell *matCellDef="let element"> {{element.isKronofogden? 'Ja' : 'Nej'}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="kfmColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: kfmColumns;"></tr>
 </table>
-<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="debt-paginator"></mat-paginator>
 </div>
+<app-add-skuld></app-add-skuld>
+<mat-divider></mat-divider>
+
+<div>
+Jag kan betala in: 
+<mat-form-field appearance="standard">
+    <input matInput placeholder="">
+  </mat-form-field>
+  kr i månaden.
+  
+  <button mat-raised-button class="larger-btn" color="primary">Bli skuldfri</button>
+  
+</div>
+
+
 </mat-card>
+

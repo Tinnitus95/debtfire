@@ -1,0 +1,20 @@
+
+
+    <form action="" [formGroup]="addSkuldForm" (ngSubmit)="onSubmit(addSkuldForm.getRawValue())" class="add-skuld-form">
+      Lägg till skuld: 
+      <mat-form-field appearance="standard" class="space">
+        <input matInput type="text" placeholder="Borgenär" formControlName="borgenar">
+      </mat-form-field>
+      <mat-form-field appearance="standard" class="space">
+        <input matInput type="number" placeholder="Skuld" formControlName="skuld">
+      </mat-form-field>
+      <mat-form-field appearance="standard" class="space">
+        <input matInput type="number" placeholder="Ränta" formControlName="ranta">
+      </mat-form-field>
+
+        <button mat-mini-fab class="add-fab-btn">
+          <mat-icon>add</mat-icon>
+        </button>
+      
+    </form>
+

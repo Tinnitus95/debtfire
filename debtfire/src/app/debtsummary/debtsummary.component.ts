@@ -58,7 +58,7 @@ export class DebtsummaryComponent implements OnInit {
   ngOnInit() {
     this.kfmDataSource.paginator = this.paginator;
     this.kfmDataSource.sort = this.sort;
-   // this.totalSkuld = this.kfmData.reduce((sum, val) => )
+    //this.totalSkuld = this.kfmData
   }
 
 
