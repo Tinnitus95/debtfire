@@ -2,16 +2,23 @@
   <mat-card-content>
     <h2>Lägg till en skuld</h2>
 
-    <form action="" [formGroup]="addSkuldForm">
-      <mat-form-field>
-        <input type="text" placeholder="borgenar" formControlName="borgenar">
+    <form action="" [formGroup]="addSkuldForm" (ngSubmit)="onSubmit(addSkuldForm.getRawValue())">
+      <mat-form-field appearance="fill" class="space">
+        <input matInput type="text" placeholder="borgenar" formControlName="borgenar">
       </mat-form-field>
-      <mat-form-field>
-        <input type="number" placeholder="skuld" formControlName="skuld">
+      <mat-form-field appearance="fill" class="space">
+        <input matInput type="number" placeholder="skuld" formControlName="skuld">
       </mat-form-field>
-      <mat-form-field>
-        <input type="number" placeholder="ränta" formControlName="ranta">
+      <mat-form-field appearance="fill" class="space">
+        <input matInput type="number" placeholder="ränta" formControlName="ranta">
       </mat-form-field>
+      <p>
+        <button mat-mini-fab>
+          <mat-icon>add</mat-icon>
+        </button>
+        Lägg till skuld
+      </p>
+
     </form>
   </mat-card-content>
 </mat-card>
