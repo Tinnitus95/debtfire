@@ -1,7 +1,7 @@
 <mat-card class="debt-card">
   <mat-card-header>
     <mat-card-title>Dina skulder</mat-card-title>
-    <mat-card-subtitle>Din totala skuld: {{totalSkuld}} kr</mat-card-subtitle>
+ 
   </mat-card-header>
 
 
@@ -12,10 +12,7 @@
             The actual rendered columns are set as a property on the row definition" -->
 
       <!-- Position Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>Id</th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
+     
 
       <!-- Name Column -->
       <ng-container matColumnDef="borgenar">

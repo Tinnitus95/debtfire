@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {DebtStateService} from '../debt-state.service';
 import { MatSnackBar } from '@angular/material';
+import { DebtsService } from '../debts.service';
 
 @Component({
   selector: 'app-add-skuld',
@@ -15,7 +16,9 @@ export class AddSkuldComponent implements OnInit {
     ranta: new FormControl(),
     skuld: new FormControl()
   })
-  constructor(private snackBar: MatSnackBar) { }
+  constructor(private snackBar: MatSnackBar,
+  private service: DebtsService
+  ) { }
 
   ngOnInit() {
   }
@@ -27,6 +30,7 @@ export class AddSkuldComponent implements OnInit {
     this.snackBar.open(skuld, '', {
       duration: 2000,
     });
+    this.service.addNewDebt(formValues);
   }
 
 }
