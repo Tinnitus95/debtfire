@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-content>
+    <h1>Vad har du för betalningsutrymme</h1>
+    <form action="" [formGroup]="utrymmeForm" (ngSubmit)="onSubmit()">
+      <mat-form-field>
+        <input matInput type="number" placeholder="Jag kan betala" formControlName="utrymme">
+        <span matSuffix>Kr i månaden</span>
+      </mat-form-field>
+      <mat-card-actions>
+        <button mat-raised-button color="primary" type="submit" [disabled]="utrymmeForm.invalid">Spara och gå vidare </button>
+      </mat-card-actions>
+    </form>
+
+  </mat-card-content>
+</mat-card>

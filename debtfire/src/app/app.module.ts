@@ -28,13 +28,15 @@ import {RouterModule, Routes} from '@angular/router';
 import {MainComponent} from './main/main.component';
 import {DebtSelectionComponent} from './debt-selection/debt-selection.component';
 import {DebtsummaryComponent} from './debtsummary/debtsummary.component';
+import { BetalningsutrymmeComponent } from './betalningsutrymme/betalningsutrymme.component';
 
 
 const approutes: Routes = [
   {path: '', component: LoginPageComponent},
   {path: 'main', component: MainComponent},
   {path: 'debt-selection', component: DebtSelectionComponent},
-  {path: 'debt-summary', component: DebtsummaryComponent}
+  {path: 'debt-summary', component: DebtsummaryComponent},
+  {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent}
 ];
 
 @NgModule({
@@ -48,6 +50,7 @@ const approutes: Routes = [
     LoginDialogModalComponent,
     MainComponent,
     DebtSelectionComponent,
+    BetalningsutrymmeComponent,
   ],
   imports: [
     BrowserModule,
