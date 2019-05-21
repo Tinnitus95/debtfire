@@ -12,19 +12,25 @@ export class MainComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private router: Router) { }
 
+  dialogRef;
+
   ngOnInit() {
   }
 
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(FullmaktComponent, {
+    this.dialogRef = this.dialog.open(FullmaktComponent, {
       width: '250px',
 
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      this.router.navigate(['/main']);
+    this.dialogRef.afterClosed().subscribe(result => {
+      this.router.navigate(['/main/debts']);
     });
+  }
+
+  closeDialog() {
+    this.dialogRef.closeDialog();
   }
 
 

@@ -29,6 +29,7 @@ import {MainComponent} from './main/main.component';
 import {DebtSelectionComponent} from './debt-selection/debt-selection.component';
 import {DebtsummaryComponent} from './debtsummary/debtsummary.component';
 import { BetalningsutrymmeComponent } from './betalningsutrymme/betalningsutrymme.component';
+import { FullmaktComponent } from './fullmakt/fullmakt.component';
 
 
 const approutes: Routes = [
@@ -37,7 +38,7 @@ const approutes: Routes = [
 
   children: [
     { path: '', component: MainComponent },
-    
+    { path: 'debts', component: DebtsummaryComponent}
   ]},
   {path: 'debt-selection', component: DebtSelectionComponent},
   {path: 'debt-summary', component: DebtsummaryComponent},
@@ -55,6 +56,7 @@ const approutes: Routes = [
     LoginDialogModalComponent,
     MainComponent,
     DebtSelectionComponent,
+    FullmaktComponent,
     BetalningsutrymmeComponent,
   ],
   imports: [
@@ -80,7 +82,7 @@ const approutes: Routes = [
 
   ],
   providers: [],
-  entryComponents: [LoginDialogModalComponent],
+  entryComponents: [LoginDialogModalComponent, FullmaktComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {
