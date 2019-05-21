@@ -18,7 +18,7 @@ import {
   MatTableModule,
   MatPaginatorModule,
   MatSortModule,
-  MatDialogModule
+  MatDialogModule, MatGridListModule
 } from '@angular/material';
 import {FormComponent} from './form/form.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -30,19 +30,26 @@ import {DebtSelectionComponent} from './debt-selection/debt-selection.component'
 import {DebtsummaryComponent} from './debtsummary/debtsummary.component';
 import { BetalningsutrymmeComponent } from './betalningsutrymme/betalningsutrymme.component';
 import { FullmaktComponent } from './fullmakt/fullmakt.component';
+import {AutogiroComponent} from './autogiro/autogiro.component';
+import {SummeringComponent} from './summering/summering.component';
 
 
 const approutes: Routes = [
   {path: '', component: LoginPageComponent},
-  {path: 'main', component: NavbarComponent,
+  {
+    path: 'main', component: NavbarComponent,
 
   children: [
     { path: '', component: MainComponent },
     { path: 'debts', component: DebtsummaryComponent}
   ]},
+   
   {path: 'debt-selection', component: DebtSelectionComponent},
   {path: 'debt-summary', component: DebtsummaryComponent},
-  {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent}
+  {path: 'betalnings-utrymme', component: BetalningsutrymmeComponent},
+  {path: 'autogiro', component: AutogiroComponent},
+  {path: 'summering', component: SummeringComponent}
+
 ];
 
 @NgModule({
@@ -58,6 +65,8 @@ const approutes: Routes = [
     DebtSelectionComponent,
     FullmaktComponent,
     BetalningsutrymmeComponent,
+    AutogiroComponent,
+    SummeringComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,6 +86,8 @@ const approutes: Routes = [
     MatPaginatorModule,
     MatSortModule,
     MatDialogModule,
+    MatGridListModule,
+    MatListModule,
     FormsModule,
     RouterModule.forRoot(approutes, {enableTracing: true}),
 

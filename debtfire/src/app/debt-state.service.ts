@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 export interface Autogiro {
-  bankName: string;
+  autogiro: number;
+  clearing: number;
   kontonummer: number;
-  insattningsdatum: string;
+  insattningsdatum: number;
 }
 
 @Injectable({
@@ -11,12 +12,13 @@ export interface Autogiro {
 
 export class DebtStateService {
   private _selectedDebts: string;
-  private _utrymme: number;
-  private _skuldfriTime: number;
+  private _utrymme = 2000;
+  private _skuldfriTime = 36;
   private _autoGiroValues: Autogiro = {
-    bankName: '',
+    autogiro: null,
+    clearing: null,
     kontonummer: null,
-    insattningsdatum: ''
+    insattningsdatum: null
   };
 
 
